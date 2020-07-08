@@ -68,7 +68,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " https://github.com/tpope/vim-commentary
   NeoBundle 'tpope/vim-commentary'
 
-  NeoBundle 'tomasr/molokai'
+
+  " THEME (Color scheme)"
+  NeoBundle 'dracula/vim'
+  
+  " Wakatime "
+  NeoBundle 'wakatime/vim-wakatime'
+
 
 call neobundle#end()
 
@@ -137,7 +143,7 @@ set spelllang=en,cjk
 " matchit.vim
 runtime macros/matchit.vim
 " color
-colorscheme molokai
+colorscheme dracula
 
 "-------------------------------------------------------------------------------
 " NERDTree:
