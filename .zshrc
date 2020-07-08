@@ -83,6 +83,8 @@ plugins=(
     zsh-completions
     zsh-syntax-highlighting
     zsh-autosuggestions
+    wakatime
+    zsh-wakatime
     )
 
 source $ZSH/oh-my-zsh.sh
