@@ -50,6 +50,9 @@ setopt auto_param_keys
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
+# 自動で補完候補一覧を表示する
+setopt auto_list
+
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
