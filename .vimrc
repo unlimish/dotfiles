@@ -105,7 +105,7 @@ set backup
 set backupdir=~/.vim/.backup
 " スワップファイルの出力先ディレクトリを指定する
 set swapfile
-set directory=~/.vim/.swap
+set directory=/tmp
 " .viminfo(状態を復元するためファイル)の出力パス
 " set viminfo+=n~/.vim/.viminfo
 " UNDOファイルの出力先ディレクトリを指定する
@@ -214,4 +214,3 @@ cnoremap datetime <ESC>a<C-r>=strftime("%Y/%m/%d %H:%M:%S")<CR><ESC>
 " Unite:
 """nnoremap <silent>gs :Unite giti/status <CR>
 """nnoremap <silent>gb :Unite giti/branch_all <CR>
-
