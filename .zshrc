@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/oga/.oh-my-zsh"
 
+# for gpg
+export GPG_TTY=$(tty)
 
 # Node
 # source ~/.nvm/nvm.sh
@@ -16,7 +18,7 @@ export NVM_DIR="$HOME/.nvm"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
-
+SPACESHIP_CHAR_SYMBOL="ʕ•ᴥ•ʔ "
 # default editor
 export EDITOR=vim
 
@@ -122,3 +124,9 @@ source $ZSH/oh-my-zsh.sh
 #
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/oga/.sdkman"
+[[ -s "/home/oga/.sdkman/bin/sdkman-init.sh" ]] && source "/home/oga/.sdkman/bin/sdkman-init.sh"
+PATH="$HOME/.local/bin:$PATH"
+alias norminette="~/.norminette/norminette.rb"
