@@ -9,7 +9,7 @@ export GPG_TTY=$(tty)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -116,3 +116,5 @@ export SDKMAN_DIR="/home/oga/.sdkman"
 [[ -s "/home/oga/.sdkman/bin/sdkman-init.sh" ]] && source "/home/oga/.sdkman/bin/sdkman-init.sh"
 PATH="$HOME/.local/bin:$PATH"
 alias norminette="~/.norminette/norminette.rb"
+alias gcc="clang-9"
+alias clang="clang-9"
