@@ -4,6 +4,9 @@
 # for gpg
 export GPG_TTY=$(tty)
 
+# ssh-add
+eval SSH_AUTH_SOCK=/tmp/ssh-eOIqh06RrrNu/agent.19962; export SSH_AUTH_SOCK; SSH_AGENT_PID=19963; export SSH_AGENT_PID;
+
 # Node
 # source ~/.nvm/nvm.sh
 export NVM_DIR="$HOME/.nvm"
@@ -118,3 +121,15 @@ PATH="$HOME/.local/bin:$PATH"
 alias norminette="~/.norminette/norminette.rb"
 alias gcc="clang-9"
 alias clang="clang-9"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+alias norminette="/home/linuxbrew/.linuxbrew/bin/norminette"
+
+# WSL Xwindow
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+
+alias getusrname="sh ~/get_username.sh"
+# dl acc then open dir
+alias dlaac='(){ youtube-dl --extract-audio --audio-format aac $1 && explorer.exe . }'
+alias lg=lazygit
