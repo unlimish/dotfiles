@@ -214,3 +214,5 @@ cnoremap datetime <ESC>a<C-r>=strftime("%Y/%m/%d %H:%M:%S")<CR><ESC>
 " Unite:
 """nnoremap <silent>gs :Unite giti/status <CR>
 """nnoremap <silent>gb :Unite giti/branch_all <CR>
+
+set confirm
