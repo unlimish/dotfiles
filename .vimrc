@@ -216,3 +216,4 @@ cnoremap datetime <ESC>a<C-r>=strftime("%Y/%m/%d %H:%M:%S")<CR><ESC>
 """nnoremap <silent>gb :Unite giti/branch_all <CR>
 
 set confirm
+set whichwrap=h,l,b,s,<,>,[,]
