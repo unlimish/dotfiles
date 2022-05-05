@@ -217,3 +217,10 @@ cnoremap datetime <ESC>a<C-r>=strftime("%Y/%m/%d %H:%M:%S")<CR><ESC>
 
 set confirm
 set whichwrap=h,l,b,s,<,>,[,]
+
+" ----------------
+" cursor
+let &t_ti .= "\e[1 q"
+let &t_SI .= "\e[5 q"
+let &t_EI .= "\e[1 q"
+let &t_te .= "\e[0 q"
