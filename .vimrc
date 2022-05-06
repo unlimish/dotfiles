@@ -43,6 +43,7 @@ call plug#end()
 " airline
 
 let g:airline_theme='violet'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_mode_map = {
 	\ 'n'  : '¯\_(ツ)_/¯',
