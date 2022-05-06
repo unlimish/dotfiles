@@ -39,10 +39,20 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
-"-------------------------------------------------------------------------------
+"-〠_〠 ------------------------------------------------------------------------------
 " airline
 
 let g:airline_theme='violet'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_mode_map = {
+	\ 'n'  : '¯\_(ツ)_/¯',
+	\ 'i'  : 'ʕ•ᴥ•ʔ',
+	\ 'R'  : 'Replace',
+	\ 'c'  : 'Command',
+	\ 'v'  : 'ʕʘ‿ʘʔ',
+	\ 'V'  : '〠_〠',
+	\ '⌃V' : 'V-Block',
+	\ }
 
 "-------------------------------------------------------------------------------
 " SKK config
