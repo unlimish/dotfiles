@@ -1,89 +1,43 @@
-
 "-------------------------------------------------------------------------------
-" NeoBundle:
+" vim-plug
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
+call plug#begin('~/.config/nvim')
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-  " Let NeoBundle manage NeoBundle
-  " Required:
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  " My Bundles here:
-  " Refer to |:NeoBundle-examples|.
-  " Note: You don't set neobundle setting in .gvimrc !
-
-  " vimgrepの結果から置換
-  NeoBundle 'thinca/vim-qfreplace'
-
-  " Unite
-  """NeoBundle 'Shougo/unite.vim'
-  " git
-  """NeoBundle 'kmnk/vim-unite-giti'
-  """NeoBundle 'tpope/vim-fugitive'
-
-  " previm
-  NeoBundle 'kannokanno/previm'
-  NeoBundle 'tyru/open-browser.vim'
-
-  " コード補完
-  """NeoBundle 'Shougo/neocomplete.vim'
-
-  " 静的解析
-  NeoBundle 'scrooloose/syntastic'
-
-  " ドキュメント参照
-  NeoBundle 'thinca/vim-ref'
-  NeoBundle 'yuku-t/vim-ref-ri'
-
-  " メソッド定義元へのジャンプ
-  NeoBundle 'szw/vim-tags'
-
-  " ブロックのendを自動で挿入
-  NeoBundle 'tpope/vim-endwise'
-
-  " ファイルをtree表示
-  NeoBundle 'scrooloose/nerdtree'
-
-  " indent for yaml
-  NeoBundle 'chase/vim-ansible-yaml'
-
-  " Railsプロジェクトのナビゲーション
-  " https://github.com/tpope/vim-rails
-  NeoBundle 'tpope/vim-rails'
-
-  " 行コメント
-  " https://github.com/tpope/vim-commentary
-  NeoBundle 'tpope/vim-commentary'
+" Make sure you use single quotes
 
 
-  " THEME (Color scheme)"
-  NeoBundle 'dracula/vim'
-  
-  " Wakatime "
-  NeoBundle 'wakatime/vim-wakatime'
+" ファイルをtree表示
+Plug 'scrooloose/nerdtree'
+
+" indent for yaml
+Plug 'chase/vim-ansible-yaml'
+
+" 行コメント
+" https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+" THEME (Color scheme)"
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Wakatime "
+Plug 'wakatime/vim-wakatime'
+
+" vim-lsp"
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 
-call neobundle#end()
+Plug 'sheerun/vim-polyglot'
 
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" Initialize plugin system
+call plug#end()
 
 "-------------------------------------------------------------------------------
 " 編集に関する設定:
@@ -143,7 +97,7 @@ set spelllang=en,cjk
 " matchit.vim
 runtime macros/matchit.vim
 " color
-colorscheme dracula
+" colorscheme dracula
 
 "-------------------------------------------------------------------------------
 " NERDTree:
@@ -200,15 +154,6 @@ nnoremap / /\v
 " タブ移動
 nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
-
-" :ls + :buffer
-cnoremap bb ls<CR>:buf
-" 開いてるファイルのパスを表示 (Show Path)
-cnoremap sp echo expand("%:p")<CR>
-" 現在日時を入力 (yyyy/MM/dd)
-cnoremap date <ESC>a<C-r>=strftime("%Y/%m/%d")<CR><ESC>
-" 現在日時を入力 (yyyy/MM/dd hh:mm:ss)
-cnoremap datetime <ESC>a<C-r>=strftime("%Y/%m/%d %H:%M:%S")<CR><ESC>
 
 "-------------------------------------------------------------------------------
 " Unite:
