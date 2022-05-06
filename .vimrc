@@ -1,7 +1,7 @@
 "-------------------------------------------------------------------------------
 " vim-plug
 
-call plug#begin('~/.config/nvim/plug')
+call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
