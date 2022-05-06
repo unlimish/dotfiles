@@ -1,7 +1,7 @@
 "-------------------------------------------------------------------------------
 " vim-plug
 
-call plug#begin('~/.config/nvim')
+call plug#begin('~/.config/nvim/plug')
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim')
 
 
 " ファイルをtree表示
-Plug 'scrooloose/nerdtree'
+Plug 'lambdalisue/fern.vim'
 
 " indent for yaml
 Plug 'chase/vim-ansible-yaml'
@@ -29,15 +29,30 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Wakatime "
 Plug 'wakatime/vim-wakatime'
 
-" vim-lsp"
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" SKK
+Plug 'tyru/eskk.vim'
 
-
-Plug 'sheerun/vim-polyglot'
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
+
+"-------------------------------------------------------------------------------
+" airline
+
+let g:airline_theme='violet'
+
+"-------------------------------------------------------------------------------
+" SKK config
+
+let g:eskk#directory = "~/.config/skk"
+let g:eskk#large_dictionary = {'path': "~/.config/skk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp',}
+let g:eskk#directory = "~/.config/skk"
+
+let g:eskk#keep_state = 0                    "ノーマルモードに戻るとeskkモードを初期値にする
+let g:eskk#egg_like_newline = 1              "漢字変換を確定しても改行しない。
 
 "-------------------------------------------------------------------------------
 " 編集に関する設定:
@@ -94,10 +109,8 @@ se noic
 " スペルチェック
 set spell
 set spelllang=en,cjk
-" matchit.vim
-runtime macros/matchit.vim
 " color
-" colorscheme dracula
+colorscheme dracula
 
 "-------------------------------------------------------------------------------
 " NERDTree:
@@ -112,39 +125,6 @@ let g:NERDTreeShowBookmarks=1
 nmap <silent> <C-n><C-t>      :NERDTreeToggle<CR>
 
 "-------------------------------------------------------------------------------
-" Previm:
-
-let g:previm_open_cmd = 'open -a FirefoxDeveloperEdition'
-
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-
-"-------------------------------------------------------------------------------
-" neocomplete.vim:
-
-"""let g:acp_enableAtStartup = 0
-"""let g:neocomplete#enable_at_startup = 1
-"""let g:neocomplete#enable_smart_case = 1
-"""if !exists('g:neocomplete#force_omni_input_patterns')
-"""  let g:neocomplete#force_omni_input_patterns = {}
-"""endif
-"""let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-"-------------------------------------------------------------------------------
-" rubocop:
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時に syntastic を走らせるファイルタイプを指定する
-
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-
-"-------------------------------------------------------------------------------
-" refe:
-let g:ref_refe_cmd = $HOME.'/.rbenv/shims/refe' "refeコマンドのパス
-
-"-------------------------------------------------------------------------------
 " map:
 
 " 検索結果のハイライトをEsc連打でクリアする
@@ -156,9 +136,6 @@ nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
 
 "-------------------------------------------------------------------------------
-" Unite:
-"""nnoremap <silent>gs :Unite giti/status <CR>
-"""nnoremap <silent>gb :Unite giti/branch_all <CR>
 
 set confirm
 set whichwrap=h,l,b,s,<,>,[,]
