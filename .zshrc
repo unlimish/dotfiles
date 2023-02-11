@@ -134,6 +134,7 @@ alias getusrname="sh ~/get_username.sh"
 alias dlaac='(){ youtube-dl --extract-audio --audio-format aac $1 && explorer.exe . }'
 alias lg=lazygit
 alias nv=nvim
+alias vim=nvim
 alias weather='curl http://wttr.in/Tokyo'
 
 
