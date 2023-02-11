@@ -139,3 +139,11 @@ alias weather='curl http://wttr.in/Tokyo'
 
 
 source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+ export SPACESHIP_BATTERY_SHOW=false
