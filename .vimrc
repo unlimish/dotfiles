@@ -15,6 +15,8 @@ call plug#begin()
 
 " ファイルをtree表示
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+let g:fern_disable_startup_warnings = 1
 
 " indent for yaml
 Plug 'chase/vim-ansible-yaml'
@@ -36,6 +38,13 @@ Plug 'tyru/eskk.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" 自動補完
+Plug 'sheerun/vim-polyglot'
+" Plug 'ervandew/supertab'
+
+" Scroll
+Plug 'yuttie/comfortable-motion.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -55,6 +64,15 @@ let g:airline_mode_map = {
 	\ '⌃V' : 'V-Block',
 	\ }
 
+"-------------------------------------------------------------------------------
+"▼慣性スクロール
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+"
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
 "-------------------------------------------------------------------------------
 " SKK config
 
@@ -122,16 +140,12 @@ set spelllang=en,cjk
 colorscheme dracula
 
 "-------------------------------------------------------------------------------
-" NERDTree:
+"Fern
 
-" .ファイルの表示（1: 表示）
-let NERDTreeShowHidden=1
-" ブックマークを表示 (1:表示)
-let g:NERDTreeShowBookmarks=1
-" 引数なしで起動した場合、NERDTreeを開く
-" autocmd vimenter * if !argc() | NERDTree | endif
-" 表示・非表示切り替え
-nmap <silent> <C-n><C-t>      :NERDTreeToggle<CR>
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+let g:fern#default_hidden=1
+
+autocmd FileType javascript nested Fern . -reveal=% -drawer
 
 "-------------------------------------------------------------------------------
 " map:
@@ -148,6 +162,9 @@ nnoremap ]t :tabnext<CR>
 
 set confirm
 set whichwrap=h,l,b,s,<,>,[,]
+set mouse=a
+set list
+set listchars=eol:¬,tab:>-,extends:>,precedes:<,space:.
 
 " ----------------
 " cursor
