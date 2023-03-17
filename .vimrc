@@ -27,6 +27,7 @@ Plug 'tpope/vim-commentary'
 
 " THEME (Color scheme)"
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'Mofiqul/dracula.nvim' "for nvim
 
 " Wakatime "
 Plug 'wakatime/vim-wakatime'
