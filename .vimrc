@@ -45,6 +45,11 @@ Plug 'sheerun/vim-polyglot'
 " Scroll
 Plug 'yuttie/comfortable-motion.vim'
 
+" Discord Presence
+if has("mac") || has("linux")
+    Plug 'andweeb/presence.nvim'
+endif
+
 " Initialize plugin system
 call plug#end()
 
@@ -178,3 +183,31 @@ augroup Yank
   au!
   autocmd TextYankPost * :call system('clip.exe', @")
 augroup END
+
+" UNIX yank
+set clipboard=unnamed
+
+"------------------------------------------------
+" Discord Rich Presence
+" General options
+if has("mac") || has("linux")
+    let g:presence_auto_update         = 1
+    let g:presence_neovim_image_text   = "nvim"
+    let g:presence_main_image          = "neovim"
+    let g:presence_client_id           = "1086316041879162901"
+    let g:presence_debounce_timeout    = 10
+    let g:presence_enable_line_number  = 0
+    let g:presence_blacklist           = []
+    let g:presence_buttons             = 0
+    let g:presence_file_assets         = {}
+    let g:presence_show_time           = 1
+
+    " Rich Presence text options
+    let g:presence_editing_text        = "Editing"
+    let g:presence_file_explorer_text  = "Browsing"
+    let g:presence_git_commit_text     = "Committing changes"
+    let g:presence_plugin_manager_text = "Managing plugins"
+    let g:presence_reading_text        = "Reading"
+    let g:presence_workspace_text      = "Working"
+    let g:presence_line_number_text    = "Line %s out of %s"
+endif
