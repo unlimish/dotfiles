@@ -17,6 +17,7 @@ call plug#begin()
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 let g:fern_disable_startup_warnings = 1
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 " indent for yaml
 Plug 'chase/vim-ansible-yaml'
@@ -50,6 +51,15 @@ Plug 'yuttie/comfortable-motion.vim'
 if has("mac") || has("linux")
     Plug 'andweeb/presence.nvim'
 endif
+
+"markdown preview
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
+
+" intellisense
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 " Initialize plugin system
 call plug#end()
@@ -212,3 +222,14 @@ if has("mac") || has("linux")
     let g:presence_workspace_text      = "Working"
     let g:presence_line_number_text    = "Line %s out of %s"
 endif
+
+" テキスト背景色
+au ColorScheme * hi Normal ctermbg=none
+" 括弧対応
+au ColorScheme * hi MatchParen cterm=bold ctermfg=214 ctermbg=black
+" スペルチェック
+au Colorscheme * hi SpellBad ctermfg=23 cterm=none ctermbg=none
+
+set background=dark
+
+
